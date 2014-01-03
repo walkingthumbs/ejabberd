@@ -562,13 +562,13 @@ del_privacy_lists(LServer, Server, Username) ->
 
 %% Characters to escape
 escape($\0) -> "\\0";
-escape($\n) -> "\\n";
-escape($\t) -> "\\t";
-escape($\b) -> "\\b";
-escape($\r) -> "\\r";
+%% escape($\n) -> "\\n"; % not necessary w/ PostgreSQL 
+%% escape($\t) -> "\\t"; % not necessary w/ PostgreSQL
+%% escape($\b) -> "\\b"; % not necessary w/ PostgreSQL
+%% escape($\r) -> "\\r"; % not necessary w/ PostgreSQL
 escape($')  -> "''";
-escape($")  -> "\\\"";
-escape($\\) -> "\\\\";
+%% escape($")  -> "\\\""; % not necessary w/ PostgreSQL
+%% escape($\\) -> "\\\\"; % not necessary w/ PostgreSQL
 escape(C)   -> C.
 
 %% Count number of records in a table given a where clause
