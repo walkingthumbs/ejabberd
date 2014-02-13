@@ -583,6 +583,7 @@ route_message(From, To, Packet) ->
 				    ok
 			    end;
 			_ ->
+				?ERROR_MSG("User ~p@~p doesn't exist!", [LUser, LServer]),
 			    Err = jlib:make_error_reply(
 				    Packet, ?ERR_SERVICE_UNAVAILABLE),
 			    ejabberd_router:route(To, From, Err)
